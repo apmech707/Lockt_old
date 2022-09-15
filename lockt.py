@@ -32,7 +32,7 @@ from os.path import isdir
 def encryption_warning_msg():
     '''Pauses right before the encryption and asks the user to verify that they want to proceed with encryption. An extra step to prevent accidents.'''
     while True:
-        print("Remember to always create a backup of your data before encrypting it. Don't say that I didn't warn you.")
+        print("Remember to always create a backup of your data before encrypting it.\nDon't say that I didn't warn you.")
         print("Are you sure that you want to proceed?")
         print("[1] Yes, encrypt my file(s)\n[2] No, abort!")
         goforit = input()
@@ -240,7 +240,7 @@ def decrypt():
         try:
             if pickk.strip() == "1" or pickk.strip() == "[1]" or pickk.lower().strip() == "singlefile":
                 path = input("Enter the full path name of file.\n ")
-                key = input("Enter the key to decrypt this file.\n")
+                key = input("Enter the key to decrypt this file.\n ")
                 
                 if len(key) > 0: 
                     key = key.split("!!!")
@@ -250,14 +250,14 @@ def decrypt():
                     fernet = Fernet(key)
                     hsh = hash_file(path)
                     if hsh != key_hash:
-                        print("WARNING! THE HASH OF YOUR FILE DOESN'T MATCH THE HASH THAT WAS MADE WHEN IT WAS ENCRYPTED!")
+                        print("\nWARNING! THE HASH OF YOUR FILE DOESN'T MATCH THE HASH THAT WAS MADE WHEN IT WAS ENCRYPTED!\n")
                         print("This indicates that the encrypted file has changed for some reason.")
                         print("If the encrypted data has been corrupted, then decryption will fail.")
                         print("In case of failure, please restore the data from your backups")
                         print("If decryption is successfull, then the file has been altered and re-encrypted using the same key.")
                         print("If you are not aware of any change, you should discard this file and restore from backup")
                         print("Decrypting and opening this file poses a security risk.")
-                        print("How do you want to proceed?")
+                        print("\nHow do you want to proceed?")
                         print("[1] Abort! Do NOT decrypt or open the file.\n[2] Decrypt anyways")
                         what = input()
                         if what.strip() == "1" or what.strip() == "[1]" or what.lower().strip() == "abort":
@@ -316,7 +316,7 @@ def decrypt():
         try:
             if pickk.strip() == "2" or pickk.strip() == "[2]" or pickk.lower().strip() == "directory":
                 path = input("Enter the full path name of directory.\n ")
-                key = input("Enter the key to decrypt this directory.\n")
+                key = input("Enter the key to decrypt this directory.\n ")
                 
                 if len(key) > 0: 
                     key = key.split("!!!")
@@ -342,14 +342,14 @@ def decrypt():
                                         f.write(decrypted_file)
 
                     if hsh != key_hash:
-                        print("WARNING! THE HASH OF YOUR FILES DOESN'T MATCH THE HASH THAT WAS MADE WHEN THEY WERE ENCRYPTED!")
+                        print("\nWARNING! THE HASH OF YOUR FILES DOESN'T MATCH THE HASH THAT WAS MADE WHEN THEY WERE ENCRYPTED!\n")
                         print("This indicates that some or all of the files have changed for some reason.")
                         print("If the encrypted data has been corrupted, then decryption will fail.")
                         print("In case of failure, please restore the data from your backups")
                         print("If decryption is successfull, the files have been altered and re-ecrypted using the same key.")
                         print("If you are not aware of any change, you should discard these files and restore from backup")
                         print("Decrypting and opening this directory poses a security risk.")
-                        print("How do you want to proceed?")
+                        print("\nHow do you want to proceed?")
                         print("[1] Abort! Do NOT decrypt or open the directory.\n[2] Decrypt anyways")
                         what = input()
                         if what.strip() == "1" or what.strip() == "[1]" or what.lower().strip() == "abort":
@@ -416,7 +416,7 @@ def main():
         print('   |||   |  -------------  []  ---|| ')
         print('   ```\   \__^_^/  /     \____/      ')  
         print("     ```._______.'`              ")
-        print("\nWelcome to Lockt. \nDo you need something encrypted or decrypted?\n")
+        print("\nWelcome to Lockt.\nDo you need something encrypted or decrypted?\n")
         print("[1]  Encrypt\n[2]  Decrypt\n[3]  Exit\n")
         pick = input()
         
