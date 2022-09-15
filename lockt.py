@@ -32,7 +32,7 @@ from os.path import isdir
 def encryption_warning_msg():
     '''Pauses right before the encryption and asks the user to verify that they want to proceed with encryption. An extra step to prevent accidents.'''
     while True:
-    	print("Remember to always create a backup of your data before encrypting it. Don't say that I didn't warn you.
+        print("Remember to always create a backup of your data before encrypting it. Don't say that I didn't warn you.")
         print("Are you sure that you want to proceed?")
         print("[1] Yes, encrypt my file(s)\n[2] No, abort!")
         goforit = input()
