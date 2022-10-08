@@ -30,7 +30,7 @@ from os import listdir
 from os.path import isdir
 
 def encryption_warning_msg():
-    '''Pauses right before the encryption and asks the user to verify that they want to proceed with encryption. An extra step to prevent accidents.'''
+    """Pauses right before the encryption and asks the user to verify that they want to proceed with encryption. An extra step to prevent accidents."""
     while True:
         print("Remember to always create a backup of your data before encrypting it.\nDon't say that I didn't warn you.")
         print("Are you sure that you want to proceed?")
@@ -49,14 +49,14 @@ def encryption_warning_msg():
             continue
                         
 def hash_file(path):
-    '''Produce a hash of the file in order to ensure file integrity and return a hex representation of the hash'''
+    """Produce a hash of the file in order to ensure file integrity and return a hex representation of the hash"""
     with open(path, "r") as f:
         file = f.read()
         hash_of_file = hashlib.sha3_512(file.encode()).hexdigest()
         return hash_of_file
       
 def string_of_all_files(path):
-    '''Iterates through the directory, adds them all to a list, sorts them, concatenates them all together as one string using the .join() method, and returns that long string. This is use in the hashing process.'''
+    """Iterates through the directory, adds them all to a list, sorts them, concatenates them all together as one string using the .join() method, and returns that long string. This is use in the hashing process."""
     dirfiles = []
     for i in listdir(path):
         with open(f"{path}{i}", "r")as f:        
@@ -67,9 +67,9 @@ def string_of_all_files(path):
     return dirfiles
 
 def encrypt():
-    '''
+    """
     Open the file or directory, generate a key if needed, encrypt file(s), hash the file, and then print the concatenated the key and the hash to be used when decrypting 
-    '''
+    """
     ditch = 0
     while ditch == 0:
         print("Do you need to encrypt a single file or a directory?\n")
@@ -228,9 +228,9 @@ def encrypt():
             continue
 
 def decrypt(): 
-    '''
+    """
     Parses the key input, hashes the file, verifies the hash, and decrypts.
-    '''
+    """
     ditch = 0
     while ditch == 0:
         print("Do you need to decrypt a single file or a directory?")
@@ -402,7 +402,7 @@ def decrypt():
             print("\nWhoops!\nI didn't understand what you typed. Please choose from the options listed. Type either 1, 2, or 3.")
             continue
 def main():
-    '''The home page of the app. This is the beginning point and where you end up after each process. '''
+    """The home page of the app. This is the beginning point and where you end up after each process. """
     while True:
         print('\n')
         print('         LOCKT                   ')
