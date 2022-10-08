@@ -1,3 +1,11 @@
+**UPDATE**
+I have become aware of a limitation of using fernet with large files. I am in the process of rewriting this code
+using the cryptography library using symmetric encryption a different way. This app should stil work now, but if you 
+have a large file to encrypt please test this first before using it. source for info is here - https://cryptography.io/en/latest/fernet/#limitations.
+
+
+
+
 Lockt
 
 This is a program that can encrypt or decrypt a file, or directory of files using the cryptography.fernet module. It is a command line interface app. This code is optomized for a linux file system, however the ability for this to be run on a windows file system could be added relatively easily. 
